@@ -13,10 +13,10 @@ namespace YouTrackSharp.Issues
         public string Name;
 
         [JsonProperty("newValue")]
-        public object NewValue;
+        public object[] NewValue;
 
         [JsonProperty("oldValue")]
-        public object OldValue;
+        public object[] OldValue;
 
         [JsonProperty("valueId")]
         public object ValueId;
@@ -24,7 +24,7 @@ namespace YouTrackSharp.Issues
         public Field OldValueField => new Field
         {
             Name = Name,
-            Value = OldValue,
+            Value = OldValue[0],
             ValueId = ValueId,
             Color = Color
         };
@@ -32,7 +32,7 @@ namespace YouTrackSharp.Issues
         public Field NewValueField => new Field
         {
             Name = Name,
-            Value = OldValue,
+            Value = NewValue[0],
             ValueId = ValueId,
             Color = Color
         };
